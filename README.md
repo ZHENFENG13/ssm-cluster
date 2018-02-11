@@ -1,3 +1,3 @@
 # ssm-cluster
 
-会尽快发布，谢谢支持
+目前为开发测试阶段，技术选型为:springboot+mysql+vue
