@@ -9,7 +9,7 @@
 * [ ] [ssm-dubbo](https://github.com/ZHENFENG13/ssm-dubbo)：dubbo服务化
 * [ ] [ssm-micro-service](https://github.com/ZHENFENG13/ssm-micro-service)：springcloud技术栈实现微服务化
 
-本项目为ssm系列的第三篇，**ssm-cluster：前后端分离+集群部署(springboot+vue)统**,相较于[ssm-demo](https://github.com/ZHENFENG13/ssm-demo)仓库和[perfect-ssm](https://github.com/ZHENFENG13/perfect-ssm)仓库，ssm-cluster仓库主要是更新了前端实现，优化了目录结构及页面视觉体验，技术选型为已经火热了很久的vue技术，目前为测试开发阶段，技术选型为springboot+vue，一个纯粹的前后端分离项目，后续会逐渐优化。
+本项目为ssm系列的第三篇，**ssm-cluster：前后端分离+集群部署(springboot+vue)**，相较于[ssm-demo](https://github.com/ZHENFENG13/ssm-demo)仓库和[perfect-ssm](https://github.com/ZHENFENG13/perfect-ssm)仓库，ssm-cluster仓库主要是更新了前端实现，优化了目录结构及页面视觉体验，技术选型为已经火热了很久的vue技术，目前为测试开发阶段，技术选型为springboot+vue，一个纯粹的前后端分离项目，后续会逐渐优化。
 
 目前在分支[springboot-vue](https://github.com/ZHENFENG13/ssm-cluster/tree/springboot-vue)上进行开发测试，后续会整合到master分支上。
 
