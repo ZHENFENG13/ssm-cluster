@@ -3,8 +3,8 @@ $(function () {
         url: baseURL + 'users/list',
         datatype: "json",
         colModel: [
-            {label: 'id', name: 'id', index: 'id', width: 50, key: true},
-            {label: '登录名', name: 'userName', index: 'user_name', width: 80}
+            {label: 'id', name: 'id', index: 'id', width: 50, sortable: false, key: true},
+            {label: '登录名', name: 'userName', index: 'user_name', sortable: false, width: 80}
         ],
         viewrecords: true,
         height: 385,

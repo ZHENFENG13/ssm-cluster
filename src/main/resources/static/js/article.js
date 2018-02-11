@@ -3,10 +3,10 @@ $(function () {
         url: baseURL + 'articles/list',
         datatype: "json",
         colModel: [
-            {label: 'id', name: 'id', index: 'id', width: 50, key: true},
-            {label: '文章标题', name: 'articleTitle', index: 'article_title', width: 80},
-            {label: '创建时间', name: 'articleCreateDate', index: 'article_create_date',width: 80},
-            {label: '添加人', name: 'addName', index: 'add_name', width: 80}
+            {label: 'id', name: 'id', index: 'id', width: 50, sortable: false, key: true},
+            {label: '文章标题', name: 'articleTitle', index: 'article_title', sortable: false, width: 80},
+            {label: '创建时间', name: 'articleCreateDate', index: 'article_create_date', sortable: false, width: 80},
+            {label: '添加人', name: 'addName', index: 'add_name', sortable: false, width: 80}
         ],
         viewrecords: true,
         height: 385,

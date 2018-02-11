@@ -3,9 +3,9 @@ $(function () {
         url: baseURL + 'pictures/list',
         datatype: "json",
         colModel: [
-            {label: 'id', name: 'id', index: 'id', width: 50, key: true},
-            {label: '图片地址', name: 'path', index: 'path', width: 80},
-            {label: '添加时间', name: 'time', index: 'time', width: 80}
+            {label: 'id', name: 'id', index: 'id', width: 50, sortable: false, key: true},
+            {label: '图片地址', name: 'path', index: 'path', sortable: false, width: 80},
+            {label: '添加时间', name: 'time', index: 'time', sortable: false, width: 80}
         ],
         viewrecords: true,
         height: 385,
