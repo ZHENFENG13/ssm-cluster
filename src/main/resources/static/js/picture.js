@@ -41,6 +41,31 @@ var vm = new Vue({
         title: null,
         picture: {}
     },
+    mounted: function () {
+        new AjaxUpload('#upload', {
+            action: baseURL + 'images',
+            name: 'file',
+            autoSubmit: true,
+            responseType: "json",
+            onSubmit: function (file, extension) {
+                if (!(extension && /^(jpg|jpeg|png|gif)$/.test(extension.toLowerCase()))) {
+                    alert('只支持jpg、png、gif格式的图片！');
+                    return false;
+                }
+            },
+            onComplete: function (file, r) {
+                if (r.code == 0) {
+                    vm.picture.path = r.url;
+                    console.log(r);
+                    $("#img").attr("src", r.url);
+                    $("#img").attr("style", "display:block;");
+                    return false;
+                } else {
+                    alert(r.msg);
+                }
+            }
+        });
+    },
     methods: {
         query: function () {
             vm.reload();
