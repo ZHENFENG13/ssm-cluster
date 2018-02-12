@@ -1,5 +1,6 @@
 package com.ssm.cluster.service.impl;
 
+import com.ssm.cluster.utils.DateUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -32,6 +33,11 @@ public class PictureServiceImpl implements PictureService {
 
     @Override
     public void save(Picture picture) {
+        try {
+            picture.setTime(DateUtil.getCurrentDateStr());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         pictureDao.insertPicture(picture);
     }
 

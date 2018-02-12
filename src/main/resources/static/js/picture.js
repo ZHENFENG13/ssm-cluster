@@ -100,9 +100,11 @@ var vm = new Vue({
                 success: function (r) {
                     if (r.code === 0) {
                         alert('操作成功', function (index) {
+                            $("#img").attr("style", "display:none;");
                             vm.reload();
                         });
                     } else {
+                        $("#img").attr("style", "display:none;");
                         alert(r.msg);
                     }
                 }
