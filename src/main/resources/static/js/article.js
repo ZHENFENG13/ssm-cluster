@@ -42,6 +42,26 @@ var vm = new Vue({
         title: null,
         article: {}
     },
+    mounted: function () {
+        //详情编辑器
+        KindEditor.ready(function (K) {
+            this.editor
+                = K.create('textarea[id="editor"]', {
+                items: ['source', '|', 'undo', 'redo', '|', 'preview', 'print', 'template', 'code', 'cut', 'copy', 'paste',
+                    'plainpaste', 'wordpaste', '|', 'justifyleft', 'justifycenter', 'justifyright',
+                    'justifyfull', 'insertorderedlist', 'insertunorderedlist', 'indent', 'outdent', 'subscript',
+                    'superscript', 'clearhtml', 'quickformat', 'selectall', '|', 'fullscreen', '/',
+                    'formatblock', 'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold',
+                    'italic', 'underline', 'strikethrough', 'lineheight', 'removeformat', '|', 'multiimage',
+                    'table', 'hr', 'emoticons', 'baidumap', 'pagebreak',
+                    'anchor', 'link', 'unlink'],
+                uploadJson: baseURL + 'images',
+                filePostName: 'file',
+                fileManagerJson: baseURL + 'images',
+                allowFileManager: true
+            });
+        });
+    },
     methods: {
         query: function () {
             vm.reload();
@@ -49,6 +69,7 @@ var vm = new Vue({
         add: function () {
             vm.showList = false;
             vm.title = "新增";
+            editor.html('');
             vm.article = {};
         },
         update: function (event) {
@@ -63,17 +84,20 @@ var vm = new Vue({
         },
         saveOrUpdate: function (event) {
             var url = vm.article.id == null ? "articles/save" : "articles/update";
+            vm.article.articleContent = editor.html();
             $.ajax({
                 type: "POST",
                 url: baseURL + url,
                 contentType: "application/json",
                 data: JSON.stringify(vm.article),
                 success: function (r) {
-                    if (r.code === 0) {
+                    if (r.code === 200) {
                         alert('操作成功', function (index) {
+                            editor.html('请输入...');
                             vm.reload();
                         });
                     } else {
+                        editor.html('请输入...');
                         alert(r.msg);
                     }
                 }
@@ -92,7 +116,7 @@ var vm = new Vue({
                     contentType: "application/json",
                     data: JSON.stringify(ids),
                     success: function (r) {
-                        if (r.code == 0) {
+                        if (r.code == 200) {
                             alert('操作成功', function (index) {
                                 $("#jqGrid").trigger("reloadGrid");
                             });
@@ -106,6 +130,7 @@ var vm = new Vue({
         getInfo: function (id) {
             $.get(baseURL + "articles/info/" + id, function (r) {
                 vm.article = r.article;
+                editor.html(vm.article.articleContent);
             });
         },
         reload: function (event) {

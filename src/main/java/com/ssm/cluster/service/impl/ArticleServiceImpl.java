@@ -1,5 +1,6 @@
 package com.ssm.cluster.service.impl;
 
+import com.ssm.cluster.utils.DateUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -33,6 +34,11 @@ public class ArticleServiceImpl implements ArticleService {
 
     @Override
     public void save(Article article) {
+        try {
+            article.setArticleCreateDate(DateUtil.getCurrentDateStr());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         articleDao.insertArticle(article);
     }
 

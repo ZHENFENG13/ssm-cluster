@@ -59,7 +59,7 @@ var vm = new Vue({
                 }
             },
             onComplete: function (file, r) {
-                if (r.code == 0) {
+                if (r.code == 200) {
                     vm.picture.path = r.url;
                     console.log(r);
                     $("#img").attr("src", r.url);
@@ -98,7 +98,7 @@ var vm = new Vue({
                 contentType: "application/json",
                 data: JSON.stringify(vm.picture),
                 success: function (r) {
-                    if (r.code === 0) {
+                    if (r.code === 200) {
                         alert('操作成功', function (index) {
                             $("#img").attr("style", "display:none;");
                             vm.reload();
@@ -123,7 +123,7 @@ var vm = new Vue({
                     contentType: "application/json",
                     data: JSON.stringify(ids),
                     success: function (r) {
-                        if (r.code == 0) {
+                        if (r.code == 200) {
                             alert('操作成功', function (index) {
                                 $("#jqGrid").trigger("reloadGrid");
                             });
