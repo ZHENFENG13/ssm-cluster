@@ -1,5 +1,7 @@
 package com.ssm.cluster.utils;
 
+import com.ssm.cluster.common.Constants;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -10,7 +12,7 @@ public class R extends HashMap<String, Object> {
 	private static final long serialVersionUID = 1L;
 	
 	public R() {
-		put("code", 0);
+		put("code", Constants.RESULT_CODE_SUCCESS);
 	}
 	
 	public static R error() {
