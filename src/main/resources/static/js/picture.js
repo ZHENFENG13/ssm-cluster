@@ -4,7 +4,7 @@ $(function () {
         datatype: "json",
         colModel: [
             {label: 'id', name: 'id', index: 'id', width: 50, sortable: false, key: true},
-            {label: '图片地址', name: 'path', index: 'path', sortable: false, width: 80},
+            {label: '图片地址', name: 'path', index: 'path', sortable: false, width: 105, formatter: imgFormatter},
             {label: '添加时间', name: 'time', index: 'time', sortable: false, width: 80}
         ],
         viewrecords: true,
@@ -32,6 +32,11 @@ $(function () {
             $("#jqGrid").closest(".ui-jqgrid-bdiv").css({"overflow-x": "hidden"});
         }
     });
+
+    function imgFormatter(cellvalue) {
+        return "<img src='" + cellvalue + "' height=\"120\" width=\"135\"/>";
+    }
+
 });
 
 var vm = new Vue({
