@@ -1,5 +1,6 @@
 package com.ssm.cluster.service.impl;
 
+import com.ssm.cluster.utils.MD5Util;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -32,11 +33,13 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void save(User user) {
+        user.setPassword(MD5Util.MD5Encode(user.getPassword(), "UTF-8"));
         userDao.addUser(user);
     }
 
     @Override
     public void update(User user) {
+        user.setPassword(MD5Util.MD5Encode(user.getPassword(), "UTF-8"));
         userDao.updateUser(user);
     }
 
