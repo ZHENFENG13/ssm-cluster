@@ -16,6 +16,12 @@
 ##### 项目地址
   <a href='http://ssm-cluster.13blog.site/'>ssm-cluster</a> <br /> 
 
+#### 捐赠
+
+**网站的持续运行需要各项基础设施的搭建，而服务期的续费和维护及各种配套服务的购买也需要一定的费用，希望朋友们给予一点支持，谢谢！**
+
+**支付宝：**<img src="https://raw.githubusercontent.com/ZHENFENG13/resource/master/images/2018-02-27/zhifubao1.jpg" width = "200" height = "200" alt="zhifubao"/>**微信支付：**<img src="https://raw.githubusercontent.com/ZHENFENG13/resource/master/images/2018-02-27/wxpay.jpg" width = "200" height = "200" alt="wxpay"/>
+
 ## Introduce
 
 ###### 功能简介
