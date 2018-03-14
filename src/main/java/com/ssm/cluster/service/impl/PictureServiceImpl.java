@@ -1,5 +1,6 @@
 package com.ssm.cluster.service.impl;
 
+import com.ssm.cluster.utils.AntiXssUtil;
 import com.ssm.cluster.utils.DateUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -35,6 +36,7 @@ public class PictureServiceImpl implements PictureService {
     public void save(Picture picture) {
         try {
             picture.setTime(DateUtil.getCurrentDateStr());
+            picture.setUrl(AntiXssUtil.replaceHtmlCode(picture.getUrl()));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -43,6 +45,7 @@ public class PictureServiceImpl implements PictureService {
 
     @Override
     public void update(Picture picture) {
+        picture.setUrl(AntiXssUtil.replaceHtmlCode(picture.getUrl()));
         pictureDao.updPicture(picture);
     }
 

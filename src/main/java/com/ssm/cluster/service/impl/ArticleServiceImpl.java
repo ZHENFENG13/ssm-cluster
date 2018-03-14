@@ -1,5 +1,6 @@
 package com.ssm.cluster.service.impl;
 
+import com.ssm.cluster.utils.AntiXssUtil;
 import com.ssm.cluster.utils.DateUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -36,14 +37,18 @@ public class ArticleServiceImpl implements ArticleService {
     public void save(Article article) {
         try {
             article.setArticleCreateDate(DateUtil.getCurrentDateStr());
+            article.setArticleTitle(AntiXssUtil.replaceHtmlCode(article.getArticleTitle()));
+            article.setArticleContent(AntiXssUtil.replaceHtmlCode(article.getArticleContent()));
+            articleDao.insertArticle(article);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        articleDao.insertArticle(article);
     }
 
     @Override
     public void update(Article article) {
+        article.setArticleTitle(AntiXssUtil.replaceHtmlCode(article.getArticleTitle()));
+        article.setArticleContent(AntiXssUtil.replaceHtmlCode(article.getArticleContent()));
         articleDao.updArticle(article);
     }
 

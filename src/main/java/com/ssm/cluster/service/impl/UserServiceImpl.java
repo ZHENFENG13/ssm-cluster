@@ -1,5 +1,6 @@
 package com.ssm.cluster.service.impl;
 
+import com.ssm.cluster.utils.AntiXssUtil;
 import com.ssm.cluster.utils.MD5Util;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -34,13 +35,19 @@ public class UserServiceImpl implements UserService {
     @Override
     public void save(User user) {
         user.setPassword(MD5Util.MD5Encode(user.getPassword(), "UTF-8"));
+        user.setUserName(AntiXssUtil.replaceHtmlCode(user.getUserName()));
         userDao.addUser(user);
     }
 
     @Override
     public void update(User user) {
-        user.setPassword(MD5Util.MD5Encode(user.getPassword(), "UTF-8"));
-        userDao.updateUser(user);
+        //防止有人胡乱修改导致其他人无法正常登陆
+        if (!"admin".equals(user.getUserName())) {
+            user.setPassword(MD5Util.MD5Encode(user.getPassword(), "UTF-8"));
+            user.setUserName(AntiXssUtil.replaceHtmlCode(user.getUserName()));
+            userDao.updateUser(user);
+        }
+
     }
 
     @Override
