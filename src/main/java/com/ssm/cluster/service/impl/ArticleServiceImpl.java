@@ -38,7 +38,6 @@ public class ArticleServiceImpl implements ArticleService {
         try {
             article.setArticleCreateDate(DateUtil.getCurrentDateStr());
             article.setArticleTitle(AntiXssUtil.replaceHtmlCode(article.getArticleTitle()));
-            article.setArticleContent(AntiXssUtil.replaceHtmlCode(article.getArticleContent()));
             articleDao.insertArticle(article);
         } catch (Exception e) {
             e.printStackTrace();
@@ -48,7 +47,6 @@ public class ArticleServiceImpl implements ArticleService {
     @Override
     public void update(Article article) {
         article.setArticleTitle(AntiXssUtil.replaceHtmlCode(article.getArticleTitle()));
-        article.setArticleContent(AntiXssUtil.replaceHtmlCode(article.getArticleContent()));
         articleDao.updArticle(article);
     }
 
