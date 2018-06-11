@@ -56,7 +56,7 @@ LOCK TABLES `ssm_picture` WRITE;
 
 INSERT INTO `ssm_picture` (`id`, `path`, `type`, `time`, `url`, `grade`)
 VALUES
-	(103,'upload/20170808_11231251.png',1,'2017-08-08 11:23:32','https://github.com/ZHENFENG13/perfect-ssm',1);
+	(103,'upload/20170808_11231251.png',1,'2017-08-08 11:23:32','https://github.com/ZHENFENG13/ssm-cluster',1);
 
 /*!40000 ALTER TABLE `ssm_picture` ENABLE KEYS */;
 UNLOCK TABLES;

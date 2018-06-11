@@ -55,7 +55,7 @@
     <update id="updPicture" parameterType="com.ssm.cluster.entity.Picture">
         update ssm_picture
         set
-        path=#{path},url=#{url},type=#{type},time=#{time},
+        path=#{path},url=#{url},type=#{type},
         grade=#{grade}
         where id=#{id}
     </update>

@@ -5,13 +5,11 @@
 **ssm系列**<br />
 * [x] [ssm-demo](https://github.com/ZHENFENG13/ssm-demo):Spring+SpringMVC+Mybatis+easyUI整合
 * [x] [perfect-ssm](https://github.com/ZHENFENG13/perfect-ssm):RESTful API+redis缓存
-* [x] **ssm-cluster：前后端分离+集群部署(springboot+vue)**
+* [x] **ssm-cluster：前后端分离+集群部署(SSM+adminLTE3)**
 * [ ] [ssm-dubbo](https://github.com/ZHENFENG13/ssm-dubbo)：dubbo服务化
 * [ ] [ssm-micro-service](https://github.com/ZHENFENG13/ssm-micro-service)：springcloud技术栈实现微服务化
 
-本项目为ssm系列的第三篇，**ssm-cluster：前后端分离+集群部署(springboot+vue)**，相较于[ssm-demo](https://github.com/ZHENFENG13/ssm-demo)仓库和[perfect-ssm](https://github.com/ZHENFENG13/perfect-ssm)仓库，ssm-cluster仓库主要是更新了前端实现，优化了目录结构及页面视觉体验，技术选型为已经火热了很久的vue技术，目前为测试开发阶段，技术选型为springboot+vue，一个纯粹的前后端分离项目，后续会逐渐优化。
-
-目前在分支[springboot-vue](https://github.com/ZHENFENG13/ssm-cluster/tree/springboot-vue)上进行开发测试，后续会整合到master分支上。
+本项目为ssm系列的第三篇，**ssm-cluster：前后端分离+集群部署(SSM+adminLTE3)**，相较于[ssm-demo](https://github.com/ZHENFENG13/ssm-demo)仓库和[perfect-ssm](https://github.com/ZHENFENG13/perfect-ssm)仓库，ssm-cluster仓库主要是更新了前端实现，优化了目录结构及页面视觉体验，选择了adminLTE作为页面模板，目前为测试开发阶段，一个纯粹的前后端分离项目，后续会逐渐优化。
 
 ##### 项目地址
   <a href='http://ssm-cluster.13blog.site/'>ssm-cluster</a> <br /> 
@@ -189,15 +187,16 @@
 - 文章的增删改查功能，图片的增删改查功能。 <br /> 
 - 图片上传功能。 <br /> 
 - 多文本编辑器KindEditor整合。 <br /> 
-- springboot整合。 <br /> 
-- 使用vue实现前后端分离。 <br /> 
+- 页面视觉优化。 <br /> 
+- 前后端分离。 <br /> 
 
 ###### Framework
 
-- springboot <br /> 
-- vue <br /> 
+- Spring <br /> 
+- SpringMVC <br /> 
 - MyBatis <br /> 
+- adminLTE3 <br /> 
 
 ## Logs
   2018-02 ssm-cluster项目初始化。 <br /> 
-  2018-02 springboot+vue整合完成。 <br /> 
+  2018-08 整合完成,2018年08月11日正式上线! <br /> 

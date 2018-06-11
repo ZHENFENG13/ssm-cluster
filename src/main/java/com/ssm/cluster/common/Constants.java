@@ -11,8 +11,4 @@ public class Constants {
 
     public static final String ARTICLE_CACHE_KEY = "ssm-cluster:article:";//文章key
     public static final String PICTURE_CACHE_KEY = "ssm-cluster:picture:";//图片key
-
-    public static final String UPLOAD_PATH = "E:\\github\\ssm-cluster\\";//文件存储地址
-    public static final String REGISTRY_UPLOAD_PATH = "file:E:\\github\\ssm-cluster\\";//文件拦截设置
-
 }

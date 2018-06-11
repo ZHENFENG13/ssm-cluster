@@ -19,7 +19,7 @@ public interface UserService {
 	
 	void save(User user);
 	
-	void update(User user);
+	void updatePassword(User user);
 	
 	void delete(Integer id);
 	

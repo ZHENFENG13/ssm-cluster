@@ -1,19 +1,15 @@
 package com.ssm.cluster.controller;
 
-import java.util.List;
-import java.util.Map;
-
 import com.ssm.cluster.entity.Article;
 import com.ssm.cluster.service.ArticleService;
-import com.ssm.cluster.utils.R;
 import com.ssm.cluster.utils.PageUtils;
-import com.ssm.cluster.utils.Query;
+import com.ssm.cluster.utils.Result;
+import com.ssm.cluster.utils.SearchQuery;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.Map;
 
 /**
  * @author 13
@@ -29,16 +25,16 @@ public class ArticleController {
 	 * 列表
 	 */
 	@RequestMapping("/list")
-	public R list(@RequestParam Map<String, Object> params){
+	public Result list(@RequestParam Map<String, Object> params){
 		//查询列表数据
-        Query query = new Query(params);
+        SearchQuery query = new SearchQuery(params);
 
 		List<Article> articles = articleService.queryList(query);
 		int total = articleService.queryTotal(query);
 		
 		PageUtils pageUtil = new PageUtils(articles, total, query.getLimit(), query.getPage());
 		
-		return R.ok().put("page", pageUtil);
+		return Result.ok().put("page", pageUtil);
 	}
 	
 	
@@ -46,40 +42,40 @@ public class ArticleController {
 	 * 信息
 	 */
 	@RequestMapping("/info/{id}")
-	public R info(@PathVariable("id") Integer id){
+	public Result info(@PathVariable("id") Integer id){
 		Article article = articleService.queryObject(id);
 		
-		return R.ok().put("article", article);
+		return Result.ok().put("article", article);
 	}
 	
 	/**
 	 * 保存
 	 */
 	@RequestMapping("/save")
-	public R save(@RequestBody Article article){
+	public Result save(@RequestBody Article article){
 		articleService.save(article);
 		
-		return R.ok();
+		return Result.ok();
 	}
 	
 	/**
 	 * 修改
 	 */
 	@RequestMapping("/update")
-	public R update(@RequestBody Article article){
+	public Result update(@RequestBody Article article){
 		articleService.update(article);
 		
-		return R.ok();
+		return Result.ok();
 	}
 	
 	/**
 	 * 删除
 	 */
 	@RequestMapping("/delete")
-	public R delete(@RequestBody Integer[] ids){
+	public Result delete(@RequestBody Integer[] ids){
 		articleService.deleteBatch(ids);
 		
-		return R.ok();
+		return Result.ok();
 	}
 	
 }
