@@ -1,5 +1,8 @@
 package com.ssm.cluster.service.impl;
 
+import com.ssm.cluster.dao.UserDao;
+import com.ssm.cluster.entity.User;
+import com.ssm.cluster.service.UserService;
 import com.ssm.cluster.utils.AntiXssUtil;
 import com.ssm.cluster.utils.MD5Util;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,10 +10,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Map;
-
-import com.ssm.cluster.dao.UserDao;
-import com.ssm.cluster.entity.User;
-import com.ssm.cluster.service.UserService;
 
 @Service("userService")
 public class UserServiceImpl implements UserService {
@@ -34,15 +33,18 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void save(User user) {
-        user.setPassword(MD5Util.MD5Encode(user.getPassword(), "UTF-8"));
-        user.setUserName(AntiXssUtil.replaceHtmlCode(user.getUserName()));
-        userDao.addUser(user);
+        //防止有人胡乱修改导致其他人无法正常登陆
+        if (!"admin".equals(user.getUserName().trim())) {
+            user.setPassword(MD5Util.MD5Encode(user.getPassword(), "UTF-8"));
+            user.setUserName(AntiXssUtil.replaceHtmlCode(user.getUserName()));
+            userDao.addUser(user);
+        }
     }
 
     @Override
-    public void update(User user) {
+    public void updatePassword(User user) {
         //防止有人胡乱修改导致其他人无法正常登陆
-        if (!"admin".equals(user.getUserName())) {
+        if (!"admin".equals(user.getUserName().trim())) {
             user.setPassword(MD5Util.MD5Encode(user.getPassword(), "UTF-8"));
             user.setUserName(AntiXssUtil.replaceHtmlCode(user.getUserName()));
             userDao.updateUser(user);

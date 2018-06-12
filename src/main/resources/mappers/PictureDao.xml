@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ssm.cluster.dao.PictureDao">
+    <resultMap type="com.ssm.cluster.entity.Picture" id="PictureResult">
+        <result property="id" column="id"/>
+        <result property="path" column="path"/>
+        <result property="type" column="type"/>
+        <result property="time" column="time"/>
+        <result property="url" column="url"/>
+        <result property="grade" column="grade"/>
+    </resultMap>
+
+    <select id="findPictures" parameterType="Map" resultMap="PictureResult">
+        select id,path,type,time,url,grade from ssm_picture
+        <where>
+            <if test="url!=null and url!='' ">
+                and url like #{url}
+            </if>
+            <if test="type!=null and type!='' ">
+                and type = #{type}
+            </if>
+            <if test="grade!=null and grade!='' ">
+                and grade = #{grade}
+            </if>
+        </where>
+        <if test="start!=null and size!=null">
+            limit #{start},#{size}
+        </if>
+        <if test="number!=null and number!=null">
+            limit #{number}
+        </if>
+    </select>
+
+    <select id="getTotalPictures" parameterType="Map" resultType="int">
+        select count(*) from ssm_picture
+        <where>
+            <if test="url!=null and url!='' ">
+                and url = #{url}
+            </if>
+            <if test="type!=null and type!='' ">
+                and type = #{type}
+            </if>
+            <if test="grade!=null and grade!='' ">
+                and grade = #{grade}
+            </if>
+        </where>
+    </select>
+
+    <insert id="insertPicture" parameterType="com.ssm.cluster.entity.Picture">
+        insert into ssm_picture(path,type,time,url,grade)
+        values(#{path},#{type},#{time},#{url},#{grade})
+    </insert>
+
+    <update id="updPicture" parameterType="com.ssm.cluster.entity.Picture">
+        update ssm_picture
+        set
+        path=#{path},url=#{url},type=#{type},
+        grade=#{grade}
+        where id=#{id}
+    </update>
+
+
+    <delete id="delPicture" parameterType="int">
+        delete from
+        ssm_picture where id=#{id}
+    </delete>
+
+    <select id="findPictureById" parameterType="int" resultMap="PictureResult">
+        select id,path,type,time,url,grade
+        from ssm_picture where id=#{id}
+    </select>
+
+    <delete id="deleteBatch">
+        delete from ssm_picture where id in
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+</mapper>

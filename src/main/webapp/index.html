@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>主页</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="plugins/font-awesome/css/font-awesome.min.css">
+    <!-- sweet alert -->
+    <link rel="stylesheet" href="plugins/sweetalert/sweetalert.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="dist/css/ionicons.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="dist/css/adminlte.min.css">
+</head>
+<body class="hold-transition sidebar-mini" onLoad="checkCookie();">
+<div class="wrapper">
+
+    <!-- Navbar -->
+    <nav class="main-header navbar navbar-expand bg-white navbar-light border-bottom">
+        <!-- Left navbar links -->
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" data-widget="pushmenu" href="#"><i class="fa fa-bars"></i></a>
+            </li>
+            <li class="nav-item d-none d-sm-inline-block">
+                <a href="index.html" class="nav-link">Home</a>
+            </li>
+        </ul>
+        <!-- Right navbar links -->
+        <ul class="navbar-nav ml-auto">
+            <!-- Messages Dropdown Menu -->
+            <li class="nav-item dropdown">
+                <a class="nav-link" data-toggle="dropdown" href="https://github.com/ZHENFENG13/ssm-cluster/wiki">
+                    <i class="fa fa-home">&nbsp;&nbsp;文档</i>
+                </a>
+                <div class="dropdown-menu dropdown-donate-lg dropdown-menu-right">
+                    <a href="https://www.cnblogs.com/han-1034683568/p/6440090.html" class="dropdown-item">项目介绍</a>
+                    <div class="dropdown-divider"></div>
+                    <a href="https://github.com/ZHENFENG13" class="dropdown-item">GitHub</a>
+                    <div class="dropdown-divider"></div>
+                    <a href="https://gitee.com/zhenfeng13" class="dropdown-item">码云</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+    <!-- /.navbar -->
+
+    <!-- Main Sidebar Container -->
+    <aside class="main-sidebar sidebar-dark-primary elevation-4">
+        <!-- Brand Logo -->
+        <a href="index.html" class="brand-link">
+            <img src="dist/img/logo.jpg" alt="ssm-cluster Logo" class="brand-image img-circle elevation-3"
+                 style="opacity: .8">
+            <span class="brand-text font-weight-light">ssm cluster</span>
+        </a>
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <!-- Sidebar user panel (optional) -->
+            <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                <div class="image">
+                    <img src="dist/img/logo3.jpg" class="img-circle elevation-2" alt="User Image">
+                </div>
+                <div class="info">
+                    <a href="#" class="d-block">13</a>
+                </div>
+            </div>
+
+            <!-- Sidebar Menu -->
+            <nav class="mt-2">
+                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                    data-accordion="false">
+                    <!-- Add icons to the links using the .nav-icon class
+                         with font-awesome or any other icon font library -->
+                    <li class="nav-header">Dashboard</li>
+                    <li class="nav-item has-treeview menu-open">
+                        <a href="#" class="nav-link active">
+                            <i class="nav-icon fa fa-dashboard"></i>
+                            <p>
+                                Dashboard
+                                <i class="right fa fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="./index.html" class="nav-link active">
+                                    <i class="fa fa-circle-o nav-icon"></i>
+                                    <p>SSMcluster</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="./index2.html" class="nav-link">
+                                    <i class="fa fa-circle-o nav-icon"></i>
+                                    <p>adminLTE v3</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-header">管理模块</li>
+                    <li class="nav-item">
+                        <a href="article.html" class="nav-link">
+                            <i class="nav-icon fa fa-edit"></i>
+                            <p>
+                                文章管理
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="picture.html" class="nav-link">
+                            <i class="nav-icon fa fa-image"></i>
+                            <p>
+                                图片管理
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="user.html" class="nav-link">
+                            <i class="fa fa-user-circle nav-icon"></i>
+                            <p>用户管理</p>
+                        </a>
+                    </li>
+
+                    <li class="nav-header">系统设置</li>
+
+                    <li class="nav-item">
+                        <a href="javascript:editPassword()" class="nav-link">
+                            <i class="fa fa-user-secret nav-icon"></i>
+                            <p>修改密码</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="javascript:logout()" class="nav-link">
+                            <i class="fa fa-sign-out nav-icon"></i>
+                            <p>安全退出</p>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <!-- /.sidebar-menu -->
+        </div>
+        <!-- /.sidebar -->
+    </aside>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1 class="m-0 text-dark">主页</h1>
+                    </div><!-- /.col -->
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="#">主页</a></li>
+                            <li class="breadcrumb-item active">Dashboard</li>
+                        </ol>
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.container-fluid -->
+        </div>
+
+        <!-- Main content -->
+        <div class="content">
+            <div class="container-fluid">
+                <div class="card card-primary card-outline">
+                    <div class="card-header">
+                        <h3 class="card-title">基本信息</h3>
+                    </div> <!-- /.card-body -->
+                    <div class="card-body">
+                        <div class="panel panel-default">
+                            <div style="padding: 10px 0 20px 10px;">
+                                <h3>&nbsp;&nbsp;&nbsp;ssm-cluster</h3>
+                                <ul>
+                                    <li>GitHub地址：<a href="https://github.com/ZHENFENG13/ssm-cluster" target="_blank">https://github.com/ZHENFENG13/ssm-cluster</a>
+                                    </li>
+                                    <li>其他项目：<a href="https://github.com/ZHENFENG13" target="_blank" target="_blank">https://github.com/ZHENFENG13</a>
+                                    </li>
+                                    <li>本项目为ssm整合第四章节的示例项目</li>
+                                    <li>如需关注项目最新动态，请Watch、Star项目,作者的邮箱地址:2449207463@qq.com</li>
+                                    <li>开源不易，熬夜辛苦，如果您觉得我的项目对您有帮助，并且您愿意给予我一点小小的支持，这样可以维持项目持续地发展，非常感谢</li>
+                                    <li>
+                                        <table class="table table-bordered" style="width: auto;">
+                                            <tr>
+                                                <td style="text-align: center">支付宝</td>
+                                                <td style="text-align: center">微信支付</td>
+                                            </tr>
+                                            <tr>
+                                                <td><img width="200" src="dist/img/zhifubao1.jpg">
+                                                </td>
+                                                <td><img width="200" src="dist/img/wxpay.jpg">
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div><!-- /.card-body -->
+                </div>
+            </div><!-- /.container-fluid -->
+        </div>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+    <footer class="main-footer">
+        <strong>Copyright &copy; 2017-2018 <a href="https://github.com/ZHENFENG13"
+                                              target="_blank">13blog.site</a>.</strong>
+        All rights reserved.
+        <div class="float-right d-none d-sm-inline-block">
+            <b>Version</b> 2.0
+        </div>
+    </footer>
+
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+        <!-- Control sidebar content goes here -->
+    </aside>
+    <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery -->
+<script src="plugins/jquery/jquery.min.js"></script>
+<!-- jQuery UI 1.11.4 -->
+<script src="plugins/jQueryUI/jquery-ui.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="dist/js/adminlte.js"></script>
+<!-- sweet alert -->
+<script src="plugins/sweetalert/sweetalert.min.js"></script>
+<script src="dist/js/public.js"></script>
+</body>
+</html>
