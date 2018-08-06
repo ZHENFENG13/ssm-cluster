@@ -14,6 +14,9 @@
 ##### 项目地址
   <a href='http://ssm-cluster.13blog.site/'>ssm-cluster</a> <br /> 
   
+###### 联系作者
+十三的java学习交流QQ群:```658365129```
+  
 #### 关联文章
 
 * [x] [SSM 搭建精美实用的管理系统](https://gitbook.cn/gitchat/column/5b4dae389bcda53d07056bc9)
