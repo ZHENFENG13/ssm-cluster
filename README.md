@@ -6,7 +6,7 @@
 * [x] [ssm-demo](https://github.com/ZHENFENG13/ssm-demo):Spring+SpringMVC+Mybatis+easyUI整合
 * [x] [perfect-ssm](https://github.com/ZHENFENG13/perfect-ssm):RESTful API+redis缓存
 * [x] **ssm-cluster：前后端分离+集群部署(SSM+adminLTE3)**
-* [ ] [ssm-dubbo](https://github.com/ZHENFENG13/ssm-dubbo)：dubbo服务化
+* [x] [ssm-dubbo](https://github.com/ZHENFENG13/ssm-dubbo)：dubbo服务化
 * [ ] [ssm-micro-service](https://github.com/ZHENFENG13/ssm-micro-service)：springcloud技术栈实现微服务化
 
 本项目为ssm系列的第三篇，**ssm-cluster：前后端分离+集群部署(SSM+adminLTE3)**，相较于[ssm-demo](https://github.com/ZHENFENG13/ssm-demo)仓库和[perfect-ssm](https://github.com/ZHENFENG13/perfect-ssm)仓库，ssm-cluster仓库主要是更新了前端实现，优化了目录结构及页面视觉体验，选择了adminLTE作为页面模板，目前为测试开发阶段，一个纯粹的前后端分离项目，后续会逐渐优化。
